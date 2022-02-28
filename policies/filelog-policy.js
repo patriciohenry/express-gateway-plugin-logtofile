@@ -13,6 +13,9 @@ module.exports = {
       enableLOG: {
         type: 'boolean',
       },
+      fileLOG: {
+        type: 'string'
+      },
       textLOG: {
         type: 'string'
       },
@@ -24,13 +27,13 @@ module.exports = {
         }
       }
     },
-  required: ['enableLOG', 'textLOG'] 
+  required: ['enableLOG', 'fileLOG', 'textLOG'] 
   },
   policy: (actionParams) => {
     return (req, res, next) => {
       if (actionParams.enableLOG) {
 
-        fs.writeFile('d:\\output.txt', eval(actionParams.textLOG) + '\r\n', {
+        fs.writeFile(actionParams.fileLOG, eval(actionParams.textLOG) + '\r\n', {
           flag: 'a' 
         }, (err) => {
           if (err) {
