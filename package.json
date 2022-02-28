@@ -1,0 +1,32 @@
+{
+  "name": "express-gateway-plugin-logtofile",
+  "version": "0.1.0",
+  "description": "HTTP-compliant Log to File  middleware for Express Gateway",
+  "main": "manifest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "log to file",
+    "cache",
+    "express",
+    "gateway"
+  ],
+  "author": "Patricio Henry Gajardo Rojas <patricio.henry@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "logger": "^0.0.1"
+  },
+  "devDependencies": {
+    "express": "^4.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patriciohenry/express-gateway-plugin-logtofile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/patriciohenry/express-gateway-plugin-logtofile.git"
+  },
+  "homepage": "https://github.com/patriciohenry/express-gateway-plugin-logtofile.git#readme"
+}
