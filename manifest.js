@@ -5,7 +5,7 @@
 module.exports = {
   version: '1.2.0',
   init: function (pluginContext) {
-    pluginContext.registerPolicy(require('express-gateway-plugin-logger/policies/filelog-policy'));
+    pluginContext.registerPolicy(require('express-gateway-plugin-logtofile/policies/filelog-policy'));
 
   },
   policies: ['filelog'] 
