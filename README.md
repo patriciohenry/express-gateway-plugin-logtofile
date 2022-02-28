@@ -24,6 +24,12 @@ policies:
               enableLOG: true
               textLOG: JSON.stringify(req.headers)
 ```
+
+3. Add to System File
+plugins:
+  filelog:
+    package: express-gateway-plugin-logtofile
+
 ## Want to make your own plugin?
 
 Just check out our [plugin development guide](https://www.express-gateway.io/docs/plugins/).
