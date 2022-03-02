@@ -31,19 +31,23 @@ module.exports = {
   },
   policy: (actionParams) => {
     return (req, res, next) => {
-      if (actionParams.enableLOG) {
+      let start_time = new Date().getTime();
 
-        fs.writeFile(actionParams.fileLOG, eval(actionParams.textLOG) + '\r\n', {
-          flag: 'a' 
-        }, (err) => {
-          if (err) {
-            console.log("ERROR WRITE LOG FILE: ", err)
-          }
-        })	
-      }
-		
-      
-      next();
-    };
+      res.once('finish', () => {
+                if (actionParams.enableLOG) {
+                  let end_time = new Date().getTime();
+                  fs.writeFile(actionParams.fileLOG, eval(actionParams.textLOG) + '\r\n', {
+                    flag: 'a' 
+                  }, (err) => {
+                    if (err) {
+                      console.log("ERROR WRITE LOG FILE: ", err)
+                    }
+                  })	
+                }
+     });
+     
+     next();
+    }
+
   }
 };
