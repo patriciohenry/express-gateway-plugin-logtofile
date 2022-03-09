@@ -8,6 +8,11 @@ Simply type from your shell environment:
 
 ```bash
 eg plugin install express-gateway-plugin-logtofile
+
+or
+
+eg plugin install patriciohenry/express-gateway-plugin-logtofile
+
 ```
 
 ## Quick start
@@ -21,7 +26,7 @@ This is done automatically for you if you used the command above.
 policies:
       - filelog:
           - action:
-			  enableLOG: true
+              enableLOG: true
               fileLOG: /var/log/mylogfile.log
               textLOG: (new Date().toISOString()) + res.statusCode + res.get('content-length') + req.connection.remoteAddress + req.method + req.headers['my_var'] + req.originalUrl + (end_time-start_time)
 
