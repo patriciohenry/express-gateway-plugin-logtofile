@@ -21,16 +21,32 @@ This is done automatically for you if you used the command above.
 policies:
       - filelog:
           - action:
-              enableLOG: true
-              textLOG: JSON.stringify(req.headers)
+			  enableLOG: true
+              fileLOG: /var/log/mylogfile.log
+              textLOG: (new Date().toISOString()) + res.statusCode + res.get('content-length') + req.connection.remoteAddress + req.method + req.headers['my_var'] + req.originalUrl + (end_time-start_time)
+
 ```
 
 3. Add to System File
+
+```yaml
 plugins:
+
   filelog:
+  
     package: express-gateway-plugin-logtofile
+```
+
 
 ## Want to make your own plugin?
+
+There are 2 general purpose variables to write to the LOG file, which contain the start datetime of the request and the end datetime of the response to the client.
+
+
+The variables are "end_time" and "start_time".  See the example. 
+
+(end_time-start_time)   will have as a result the milliseconds that the request-response process took.
+
 
 Just check out our [plugin development guide](https://www.express-gateway.io/docs/plugins/).
 We can't wait to see your custom stuff in the Gateway!
